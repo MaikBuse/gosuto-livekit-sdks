@@ -27,15 +27,15 @@ fn main() {
 }
 
 fn download_webrtc() {
-    let webrtc_dir = webrtc_sys_build::webrtc_dir();
+    let webrtc_dir = gosuto_webrtc_sys_build::webrtc_dir();
     if !webrtc_dir.exists() {
-        webrtc_sys_build::download_webrtc().unwrap();
+        gosuto_webrtc_sys_build::download_webrtc().unwrap();
     }
 }
 
 /// Copy the webrtc license to `CARGO_MANIFEST_DIR`, used by the FFI release action.
 fn copy_webrtc_license() {
-    let webrtc_dir = webrtc_sys_build::webrtc_dir();
+    let webrtc_dir = gosuto_webrtc_sys_build::webrtc_dir();
     let license = webrtc_dir.join("LICENSE.md");
     let target_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
     let out_file = Path::new(&target_dir).join("WEBRTC_LICENSE.md");
@@ -50,7 +50,7 @@ fn configure_linker() {
             println!("cargo:rustc-link-lib=static=webrtc");
         }
         "android" => {
-            webrtc_sys_build::configure_jni_symbols().unwrap();
+            gosuto_webrtc_sys_build::configure_jni_symbols().unwrap();
         }
         "macos" | "ios" => {
             println!("cargo:rustc-link-arg=-ObjC");

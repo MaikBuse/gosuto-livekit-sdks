@@ -95,12 +95,12 @@ fn main() {
         builder.file("src/desktop_capturer.cpp");
     }
 
-    let webrtc_dir = webrtc_sys_build::webrtc_dir();
+    let webrtc_dir = gosuto_webrtc_sys_build::webrtc_dir();
     let webrtc_include = webrtc_dir.join("include");
     let webrtc_lib = webrtc_dir.join("lib");
 
     if !webrtc_dir.exists() {
-        webrtc_sys_build::download_webrtc().unwrap();
+        gosuto_webrtc_sys_build::download_webrtc().unwrap();
     }
 
     builder.includes(&[
@@ -117,7 +117,7 @@ fn main() {
 
     println!("cargo:rustc-link-search=native={}", webrtc_lib.to_str().unwrap());
 
-    for (key, value) in webrtc_sys_build::webrtc_defines() {
+    for (key, value) in gosuto_webrtc_sys_build::webrtc_defines() {
         let value = value.as_deref();
         builder.define(key.as_str(), value);
     }
@@ -300,7 +300,7 @@ fn main() {
                 .flag("-std=c++20");
         }
         "android" => {
-            webrtc_sys_build::configure_jni_symbols().unwrap();
+            gosuto_webrtc_sys_build::configure_jni_symbols().unwrap();
 
             println!("cargo:rustc-link-lib=EGL");
             println!("cargo:rustc-link-lib=OpenSLES");
@@ -356,7 +356,7 @@ fn get_output_path() -> PathBuf {
 }
 
 fn configure_darwin_sysroot(builder: &mut cc::Build) {
-    let target_os = webrtc_sys_build::target_os();
+    let target_os = gosuto_webrtc_sys_build::target_os();
 
     let sdk = match target_os.as_str() {
         "mac" => "macosx",
@@ -395,13 +395,13 @@ fn configure_darwin_sysroot(builder: &mut cc::Build) {
 }
 
 fn configure_android_sysroot(builder: &mut cc::Build) {
-    let toolchain = webrtc_sys_build::android_ndk_toolchain().unwrap();
+    let toolchain = gosuto_webrtc_sys_build::android_ndk_toolchain().unwrap();
     let sysroot = toolchain.join("sysroot").canonicalize().unwrap();
     builder.flag(format!("-isysroot{}", sysroot.display()).as_str());
 }
 
 fn add_lazy_load_so(builder: &mut cc::Build, name: &str, libraries: Vec<String>) {
-    let target_arch = webrtc_sys_build::target_arch();
+    let target_arch = gosuto_webrtc_sys_build::target_arch();
     for lib_name in libraries {
         let mut arch_dir = "x86_64-linux-gnu";
         if target_arch.contains("arm64") {
@@ -426,8 +426,8 @@ fn add_lazy_load_so(builder: &mut cc::Build, name: &str, libraries: Vec<String>)
 }
 
 fn add_gio_headers(builder: &mut cc::Build) {
-    let webrtc_dir = webrtc_sys_build::webrtc_dir();
-    let target_arch = webrtc_sys_build::target_arch();
+    let webrtc_dir = gosuto_webrtc_sys_build::webrtc_dir();
+    let target_arch = gosuto_webrtc_sys_build::target_arch();
     let target_arch_sysroot = match target_arch.as_str() {
         "arm64" => "arm64",
         "x64" => "amd64",
