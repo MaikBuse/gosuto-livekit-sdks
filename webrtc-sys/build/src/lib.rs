@@ -89,13 +89,24 @@ pub fn custom_dir() -> Option<path::PathBuf> {
 /// across multiple crates without dependencies constraints
 /// This also has the benefit of not re-downloading the binaries for each crate
 pub fn prebuilt_dir() -> path::PathBuf {
-    let target_dir = scratch::path(SCRATH_PATH);
-    path::Path::new(&target_dir).join(format!(
+    let target_dir = base_dir();
+    target_dir.join(format!(
         "livekit/{}-{}/{}",
         webrtc_triple(),
         WEBRTC_TAG,
         webrtc_triple()
     ))
+}
+
+/// Returns the base directory for storing WebRTC binaries.
+/// On Windows, uses the system temp directory to avoid exceeding the 260-character MAX_PATH
+/// limit that occurs when scratch::path() nests deeply inside the cargo target directory.
+fn base_dir() -> path::PathBuf {
+    if cfg!(target_os = "windows") {
+        env::temp_dir().join(SCRATH_PATH)
+    } else {
+        scratch::path(SCRATH_PATH)
+    }
 }
 
 pub fn download_url() -> String {
@@ -197,9 +208,8 @@ pub fn configure_jni_symbols() -> Result<()> {
 }
 
 pub fn download_webrtc() -> Result<()> {
-    let dir = scratch::path(SCRATH_PATH);
-    // temporary fix to avoid github workflow issue
-    fs::create_dir_all(&dir).context("Failed to create scratch_path")?;
+    let dir = base_dir();
+    fs::create_dir_all(&dir).context("Failed to create base_dir")?;
     let flock = File::create(dir.join(".lock"))
         .context("Failed to create lock file for WebRTC download")?;
     flock.lock_exclusive().context("Failed to acquire exclusive lock for WebRTC download")?;
