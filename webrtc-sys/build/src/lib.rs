@@ -99,11 +99,12 @@ pub fn prebuilt_dir() -> path::PathBuf {
 }
 
 /// Returns the base directory for storing WebRTC binaries.
-/// On Windows, uses the system temp directory to avoid exceeding the 260-character MAX_PATH
-/// limit that occurs when scratch::path() nests deeply inside the cargo target directory.
+/// On Windows, uses a very short path to avoid exceeding the 260-character MAX_PATH limit.
+/// The longest zip entry is ~194 chars, and the intermediate path adds ~50 chars,
+/// so the base must be extremely short to stay under 260.
 fn base_dir() -> path::PathBuf {
     if cfg!(target_os = "windows") {
-        env::temp_dir().join(SCRATH_PATH)
+        path::PathBuf::from("C:\\lk")
     } else {
         scratch::path(SCRATH_PATH)
     }
