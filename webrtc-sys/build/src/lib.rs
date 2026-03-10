@@ -99,12 +99,12 @@ pub fn prebuilt_dir() -> path::PathBuf {
 }
 
 /// Returns the base directory for storing WebRTC binaries.
-/// On Windows, uses a very short path to avoid exceeding the 260-character MAX_PATH limit.
-/// The longest zip entry is ~194 chars, and the intermediate path adds ~50 chars,
-/// so the base must be extremely short to stay under 260.
+/// On Windows, uses env::temp_dir() instead of scratch to keep paths shorter.
+/// The zip 2.x crate's extract() calls canonicalize() which prepends \\?\ on Windows,
+/// bypassing the 260-character MAX_PATH limit entirely.
 fn base_dir() -> path::PathBuf {
     if cfg!(target_os = "windows") {
-        path::PathBuf::from("C:\\lk")
+        env::temp_dir().join(SCRATH_PATH)
     } else {
         scratch::path(SCRATH_PATH)
     }
@@ -237,7 +237,9 @@ pub fn download_webrtc() -> Result<()> {
     resp.copy_to(&mut file).context("Failed to write WebRTC download to temporary file")?;
 
     let mut archive = zip::ZipArchive::new(file).context("Failed to open WebRTC zip archive")?;
-    archive.extract(webrtc_dir.parent().unwrap()).context("Failed to extract WebRTC archive")?;
+    let extract_dir = webrtc_dir.parent().unwrap();
+    fs::create_dir_all(extract_dir).context("Failed to create extraction directory")?;
+    archive.extract(extract_dir).context("Failed to extract WebRTC archive")?;
     drop(archive);
 
     fs::remove_file(&tmp_path).context("Failed to remove temporary WebRTC zip file")?;
