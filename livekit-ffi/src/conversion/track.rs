@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use livekit::{participant::ParticipantTrackPermission, prelude::*};
+use gosuto_livekit::{participant::ParticipantTrackPermission, prelude::*};
 
 use crate::{
     proto,

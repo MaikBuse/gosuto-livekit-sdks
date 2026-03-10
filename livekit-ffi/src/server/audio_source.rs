@@ -14,7 +14,7 @@
 
 use std::{borrow::Cow, slice};
 
-use livekit::webrtc::prelude::*;
+use gosuto_livekit::webrtc::prelude::*;
 
 use super::FfiHandle;
 use crate::{proto, server, FfiError, FfiHandleId, FfiResult};
@@ -37,7 +37,7 @@ impl FfiAudioSource {
         let source_inner = match source_type {
             #[cfg(not(target_arch = "wasm32"))]
             proto::AudioSourceType::AudioSourceNative => {
-                use livekit::webrtc::audio_source::native::NativeAudioSource;
+                use gosuto_livekit::webrtc::audio_source::native::NativeAudioSource;
 
                 let audio_source = NativeAudioSource::new(
                     new_source.options.map(Into::into).unwrap_or_default(),

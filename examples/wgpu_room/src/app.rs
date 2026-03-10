@@ -4,7 +4,7 @@ use crate::{
     video_renderer::VideoRenderer,
 };
 use egui::{CornerRadius, Stroke};
-use livekit::{e2ee::EncryptionType, prelude::*, track::VideoQuality, SimulateScenario};
+use gosuto_livekit::{e2ee::EncryptionType, prelude::*, track::VideoQuality, SimulateScenario};
 use std::collections::HashMap;
 
 /// The state of the application are saved on app exit and restored on app start.

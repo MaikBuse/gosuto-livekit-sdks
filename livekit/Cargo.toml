@@ -1,5 +1,5 @@
 [package]
-name = "livekit"
+name = "gosuto-livekit"
 version = "0.7.32"
 edition.workspace = true
 license.workspace = true
@@ -28,7 +28,7 @@ __lk-e2e-test = [] # end-to-end testing with a LiveKit server
 [dependencies]
 livekit-runtime = { workspace = true }
 livekit-api = { workspace = true }
-libwebrtc = { workspace = true }
+gosuto-libwebrtc = { workspace = true }
 livekit-protocol = { workspace = true }
 prost = "0.12"
 serde = { workspace = true, features = ["derive"] }

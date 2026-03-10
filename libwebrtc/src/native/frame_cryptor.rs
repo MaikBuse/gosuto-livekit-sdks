@@ -16,7 +16,7 @@ use std::sync::Arc;
 
 use cxx::SharedPtr;
 use parking_lot::Mutex;
-use webrtc_sys::frame_cryptor::{self as sys_fc};
+use gosuto_webrtc_sys::frame_cryptor::{self as sys_fc};
 
 use crate::{
     peer_connection_factory::PeerConnectionFactory, rtp_receiver::RtpReceiver,
@@ -25,12 +25,19 @@ use crate::{
 
 pub type OnStateChange = Box<dyn FnMut(String, EncryptionState) + Send + Sync>;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum KeyDerivationAlgorithm {
+    Pbkdf2,
+    Hkdf,
+}
+
 #[derive(Debug, Clone)]
 pub struct KeyProviderOptions {
     pub shared_key: bool,
     pub ratchet_window_size: i32,
     pub ratchet_salt: Vec<u8>,
     pub failure_tolerance: i32,
+    pub key_derivation_algorithm: KeyDerivationAlgorithm,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -265,6 +272,25 @@ impl From<sys_fc::ffi::FrameCryptionState> for EncryptionState {
     }
 }
 
+impl From<KeyDerivationAlgorithm> for sys_fc::ffi::KeyDerivationAlgorithm {
+    fn from(value: KeyDerivationAlgorithm) -> Self {
+        match value {
+            KeyDerivationAlgorithm::Pbkdf2 => Self::Pbkdf2,
+            KeyDerivationAlgorithm::Hkdf => Self::Hkdf,
+        }
+    }
+}
+
+impl From<sys_fc::ffi::KeyDerivationAlgorithm> for KeyDerivationAlgorithm {
+    fn from(value: sys_fc::ffi::KeyDerivationAlgorithm) -> Self {
+        match value {
+            sys_fc::ffi::KeyDerivationAlgorithm::Pbkdf2 => Self::Pbkdf2,
+            sys_fc::ffi::KeyDerivationAlgorithm::Hkdf => Self::Hkdf,
+            _ => panic!("unknown KeyDerivationAlgorithm"),
+        }
+    }
+}
+
 impl From<KeyProviderOptions> for sys_fc::ffi::KeyProviderOptions {
     fn from(value: KeyProviderOptions) -> Self {
         Self {
@@ -272,6 +298,7 @@ impl From<KeyProviderOptions> for sys_fc::ffi::KeyProviderOptions {
             ratchet_window_size: value.ratchet_window_size,
             ratchet_salt: value.ratchet_salt,
             failure_tolerance: value.failure_tolerance,
+            key_derivation_algorithm: value.key_derivation_algorithm.into(),
         }
     }
 }

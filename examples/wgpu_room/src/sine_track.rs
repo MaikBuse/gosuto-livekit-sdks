@@ -1,8 +1,8 @@
-use livekit::options::TrackPublishOptions;
-use livekit::webrtc::audio_frame::AudioFrame;
-use livekit::webrtc::audio_source::RtcAudioSource;
-use livekit::webrtc::prelude::AudioSourceOptions;
-use livekit::{prelude::*, webrtc::audio_source::native::NativeAudioSource};
+use gosuto_livekit::options::TrackPublishOptions;
+use gosuto_livekit::webrtc::audio_frame::AudioFrame;
+use gosuto_livekit::webrtc::audio_source::RtcAudioSource;
+use gosuto_livekit::webrtc::prelude::AudioSourceOptions;
+use gosuto_livekit::{prelude::*, webrtc::audio_source::native::NativeAudioSource};
 use std::sync::Arc;
 use tokio::sync::oneshot;
 use tokio::task::JoinHandle;

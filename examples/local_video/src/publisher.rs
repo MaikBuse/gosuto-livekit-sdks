@@ -1,10 +1,10 @@
 use anyhow::Result;
 use clap::Parser;
-use livekit::options::{TrackPublishOptions, VideoCodec, VideoEncoding};
-use livekit::prelude::*;
-use livekit::webrtc::video_frame::{I420Buffer, VideoFrame, VideoRotation};
-use livekit::webrtc::video_source::native::NativeVideoSource;
-use livekit::webrtc::video_source::{RtcVideoSource, VideoResolution};
+use gosuto_livekit::options::{TrackPublishOptions, VideoCodec, VideoEncoding};
+use gosuto_livekit::prelude::*;
+use gosuto_livekit::webrtc::video_frame::{I420Buffer, VideoFrame, VideoRotation};
+use gosuto_livekit::webrtc::video_source::native::NativeVideoSource;
+use gosuto_livekit::webrtc::video_source::{RtcVideoSource, VideoResolution};
 use livekit_api::access_token;
 use log::{debug, info};
 use nokhwa::pixel_format::RgbFormat;

@@ -16,8 +16,8 @@ use std::collections::HashMap;
 use std::time::Duration;
 use std::{collections::HashSet, slice, sync::Arc};
 
-use livekit::{prelude::*, registered_audio_filter_plugins};
-use livekit::{ChatMessage, StreamReader};
+use gosuto_livekit::{prelude::*, registered_audio_filter_plugins};
+use gosuto_livekit::{ChatMessage, StreamReader};
 use livekit_protocol as lk_proto;
 use parking_lot::Mutex;
 use tokio::sync::{broadcast, mpsc, oneshot, Mutex as AsyncMutex};
@@ -958,7 +958,7 @@ struct ActualState {
 async fn room_task(
     server: &'static FfiServer,
     inner: Arc<RoomInner>,
-    mut events: mpsc::UnboundedReceiver<livekit::RoomEvent>,
+    mut events: mpsc::UnboundedReceiver<gosuto_livekit::RoomEvent>,
     mut close_rx: broadcast::Receiver<()>,
 ) {
     let present_state = Arc::new(Mutex::new(ActualState { reconnecting: false }));

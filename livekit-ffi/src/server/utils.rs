@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use livekit::prelude::{RoomEvent, Track, TrackSource};
+use gosuto_livekit::prelude::{RoomEvent, Track, TrackSource};
 use tokio::sync::{broadcast, mpsc};
 
 use super::participant::FfiParticipant;

@@ -17,7 +17,7 @@ use std::sync::Arc;
 use cxx::SharedPtr;
 use parking_lot::Mutex;
 use tokio::sync::{mpsc, oneshot};
-use webrtc_sys::{
+use gosuto_webrtc_sys::{
     data_channel as sys_dc, jsep as sys_jsep, peer_connection as sys_pc,
     peer_connection_factory as sys_pcf, rtc_error as sys_err,
 };
@@ -515,9 +515,9 @@ impl sys_pcf::PeerConnectionObserver for PeerObserver {
         }
     }
 
-    fn on_add_stream(&self, _stream: SharedPtr<webrtc_sys::media_stream::ffi::MediaStream>) {}
+    fn on_add_stream(&self, _stream: SharedPtr<gosuto_webrtc_sys::media_stream::ffi::MediaStream>) {}
 
-    fn on_remove_stream(&self, _stream: SharedPtr<webrtc_sys::media_stream::ffi::MediaStream>) {}
+    fn on_remove_stream(&self, _stream: SharedPtr<gosuto_webrtc_sys::media_stream::ffi::MediaStream>) {}
 
     fn on_data_channel(&self, data_channel: SharedPtr<sys_dc::ffi::DataChannel>) {
         if let Some(f) = self.data_channel_handler.lock().as_mut() {
@@ -574,7 +574,7 @@ impl sys_pcf::PeerConnectionObserver for PeerObserver {
 
     fn on_ice_candidates_removed(
         &self,
-        _removed: Vec<SharedPtr<webrtc_sys::candidate::ffi::Candidate>>,
+        _removed: Vec<SharedPtr<gosuto_webrtc_sys::candidate::ffi::Candidate>>,
     ) {
     }
 
@@ -588,12 +588,12 @@ impl sys_pcf::PeerConnectionObserver for PeerObserver {
 
     fn on_add_track(
         &self,
-        _receiver: SharedPtr<webrtc_sys::rtp_receiver::ffi::RtpReceiver>,
-        _streams: Vec<SharedPtr<webrtc_sys::media_stream::ffi::MediaStream>>,
+        _receiver: SharedPtr<gosuto_webrtc_sys::rtp_receiver::ffi::RtpReceiver>,
+        _streams: Vec<SharedPtr<gosuto_webrtc_sys::media_stream::ffi::MediaStream>>,
     ) {
     }
 
-    fn on_track(&self, transceiver: SharedPtr<webrtc_sys::rtp_transceiver::ffi::RtpTransceiver>) {
+    fn on_track(&self, transceiver: SharedPtr<gosuto_webrtc_sys::rtp_transceiver::ffi::RtpTransceiver>) {
         if let Some(f) = self.track_handler.lock().as_mut() {
             let receiver = transceiver.receiver();
             let streams = receiver.streams();
@@ -613,7 +613,7 @@ impl sys_pcf::PeerConnectionObserver for PeerObserver {
         }
     }
 
-    fn on_remove_track(&self, _receiver: SharedPtr<webrtc_sys::rtp_receiver::ffi::RtpReceiver>) {}
+    fn on_remove_track(&self, _receiver: SharedPtr<gosuto_webrtc_sys::rtp_receiver::ffi::RtpReceiver>) {}
 
     fn on_interesting_usage(&self, _usage_pattern: i32) {}
 }

@@ -19,7 +19,7 @@ use std::{
     time::Duration,
 };
 
-use libwebrtc::prelude::*;
+use gosuto_libwebrtc::prelude::*;
 use livekit_protocol as proto;
 use livekit_runtime::timeout;
 use parking_lot::Mutex;

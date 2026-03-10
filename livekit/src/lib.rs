@@ -18,7 +18,7 @@ mod room;
 mod rtc_engine;
 
 pub mod webrtc {
-    pub use libwebrtc::*;
+    pub use gosuto_libwebrtc::*;
 }
 
 pub use room::*;

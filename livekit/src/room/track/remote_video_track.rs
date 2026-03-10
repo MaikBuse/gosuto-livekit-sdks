@@ -14,7 +14,7 @@
 
 use std::{fmt::Debug, sync::Arc};
 
-use libwebrtc::{prelude::*, stats::RtcStats};
+use gosuto_libwebrtc::{prelude::*, stats::RtcStats};
 use livekit_protocol as proto;
 
 use super::{remote_track, TrackInner};

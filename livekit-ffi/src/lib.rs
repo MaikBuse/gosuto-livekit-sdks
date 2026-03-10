@@ -15,7 +15,7 @@
 use std::borrow::Cow;
 
 use lazy_static::lazy_static;
-use livekit::prelude::*;
+use gosuto_livekit::prelude::*;
 use thiserror::Error;
 
 mod conversion;

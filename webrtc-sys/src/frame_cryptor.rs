@@ -20,11 +20,19 @@ use crate::impl_thread_safety;
 pub mod ffi {
 
     #[derive(Debug)]
+    #[repr(i32)]
+    pub enum KeyDerivationAlgorithm {
+        Pbkdf2 = 0,
+        Hkdf,
+    }
+
+    #[derive(Debug)]
     pub struct KeyProviderOptions {
         pub shared_key: bool,
         pub ratchet_window_size: i32,
         pub ratchet_salt: Vec<u8>,
         pub failure_tolerance: i32,
+        pub key_derivation_algorithm: KeyDerivationAlgorithm,
     }
 
     #[derive(Debug)]
@@ -249,6 +257,7 @@ mod tests {
             ratchet_window_size: 16,
             ratchet_salt: vec![],
             failure_tolerance: -1,
+            key_derivation_algorithm: ffi::KeyDerivationAlgorithm::Hkdf,
         };
 
         let key_provider = ffi::new_key_provider(options);

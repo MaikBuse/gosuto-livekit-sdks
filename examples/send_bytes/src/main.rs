@@ -1,4 +1,4 @@
-use livekit::{Room, RoomEvent, RoomOptions, StreamByteOptions, StreamReader};
+use gosuto_livekit::{Room, RoomEvent, RoomOptions, StreamByteOptions, StreamReader};
 use packet::LedControlPacket;
 use rand::Rng;
 use std::{env, error::Error, time::Duration};

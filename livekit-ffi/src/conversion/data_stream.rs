@@ -14,7 +14,7 @@
 
 use crate::proto::{self};
 use bytes::Bytes;
-use livekit::{
+use gosuto_livekit::{
     ByteStreamInfo, OperationType, StreamByteOptions, StreamError, StreamResult, StreamTextOptions,
     TextStreamInfo,
 };

@@ -1,6 +1,6 @@
 use futures::StreamExt;
 use lazy_static::lazy_static;
-use livekit::{
+use gosuto_livekit::{
     options::TrackPublishOptions,
     prelude::*,
     track::{LocalAudioTrack, LocalTrack, RemoteTrack, TrackSource},
@@ -438,7 +438,7 @@ pub mod android {
         );
 
         log::info!("JNI_OnLoad, initializing LiveKit");
-        livekit::webrtc::android::initialize_android(&vm);
+        gosuto_livekit::webrtc::android::initialize_android(&vm);
         JNI_VERSION_1_6
     }
 

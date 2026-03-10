@@ -17,7 +17,7 @@ use std::{
     sync::Arc,
 };
 
-use libwebrtc::prelude::*;
+use gosuto_libwebrtc::prelude::*;
 use livekit_protocol as proto;
 use parking_lot::Mutex;
 use tokio::sync::Mutex as AsyncMutex;

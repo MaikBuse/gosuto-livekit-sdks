@@ -2,7 +2,7 @@ use crate::{
     logo_track::LogoTrack,
     sine_track::{SineParameters, SineTrack},
 };
-use livekit::{
+use gosuto_livekit::{
     e2ee::{key_provider::*, E2eeOptions, EncryptionType},
     prelude::*,
     track::VideoQuality,

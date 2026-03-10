@@ -21,7 +21,7 @@ use std::{
 use cxx::{SharedPtr, UniquePtr};
 use livekit_runtime::Stream;
 use tokio::sync::mpsc;
-use webrtc_sys::video_track as sys_vt;
+use gosuto_webrtc_sys::video_track as sys_vt;
 
 use super::video_frame::new_video_frame_buffer;
 use crate::{
@@ -80,7 +80,7 @@ struct VideoTrackObserver {
 }
 
 impl sys_vt::VideoSink for VideoTrackObserver {
-    fn on_frame(&self, frame: UniquePtr<webrtc_sys::video_frame::ffi::VideoFrame>) {
+    fn on_frame(&self, frame: UniquePtr<gosuto_webrtc_sys::video_frame::ffi::VideoFrame>) {
         let _ = self.frame_tx.send(VideoFrame {
             rotation: frame.rotation().into(),
             timestamp_us: frame.timestamp_us(),

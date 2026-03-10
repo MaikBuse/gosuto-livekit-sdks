@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use cxx::SharedPtr;
-use webrtc_sys::media_stream as sys_ms;
+use gosuto_webrtc_sys::media_stream as sys_ms;
 
 use crate::{
     audio_track,

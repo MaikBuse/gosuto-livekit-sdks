@@ -1,4 +1,4 @@
-use livekit::prelude::*;
+use gosuto_livekit::prelude::*;
 use livekit_api::access_token;
 use rand::Rng;
 use serde_json::{json, Value};

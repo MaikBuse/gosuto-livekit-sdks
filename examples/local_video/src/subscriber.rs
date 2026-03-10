@@ -5,8 +5,8 @@ use eframe::wgpu::{self, util::DeviceExt};
 use egui_wgpu as egui_wgpu_backend;
 use egui_wgpu_backend::CallbackTrait;
 use futures::StreamExt;
-use livekit::prelude::*;
-use livekit::webrtc::video_stream::native::NativeVideoStream;
+use gosuto_livekit::prelude::*;
+use gosuto_livekit::webrtc::video_stream::native::NativeVideoStream;
 use livekit_api::access_token;
 use log::{debug, info};
 use parking_lot::Mutex;
@@ -72,8 +72,8 @@ struct SharedYuv {
 struct SimulcastState {
     available: bool,
     publication: Option<RemoteTrackPublication>,
-    requested_quality: Option<livekit::track::VideoQuality>,
-    active_quality: Option<livekit::track::VideoQuality>,
+    requested_quality: Option<gosuto_livekit::track::VideoQuality>,
+    active_quality: Option<gosuto_livekit::track::VideoQuality>,
     full_dims: Option<(u32, u32)>,
 }
 
@@ -100,17 +100,17 @@ fn infer_quality_from_dims(
     _full_h: u32,
     cur_w: u32,
     _cur_h: u32,
-) -> livekit::track::VideoQuality {
+) -> gosuto_livekit::track::VideoQuality {
     if full_w == 0 {
-        return livekit::track::VideoQuality::High;
+        return gosuto_livekit::track::VideoQuality::High;
     }
     let ratio = cur_w as f32 / full_w as f32;
     if ratio >= 0.75 {
-        livekit::track::VideoQuality::High
+        gosuto_livekit::track::VideoQuality::High
     } else if ratio >= 0.45 {
-        livekit::track::VideoQuality::Medium
+        gosuto_livekit::track::VideoQuality::Medium
     } else {
-        livekit::track::VideoQuality::Low
+        gosuto_livekit::track::VideoQuality::Low
     }
 }
 
@@ -120,7 +120,7 @@ fn simulcast_state_full_dims(state: &Arc<Mutex<SimulcastState>>) -> Option<(u32,
 }
 
 async fn handle_track_subscribed(
-    track: livekit::track::RemoteTrack,
+    track: gosuto_livekit::track::RemoteTrack,
     publication: RemoteTrackPublication,
     participant: RemoteParticipant,
     allowed_identity: &Option<String>,
@@ -138,7 +138,7 @@ async fn handle_track_subscribed(
         }
     }
 
-    let livekit::track::RemoteTrack::Video(video_track) = track else {
+    let gosuto_livekit::track::RemoteTrack::Video(video_track) = track else {
         return;
     };
 
@@ -183,16 +183,16 @@ async fn handle_track_subscribed(
     match video_track.get_stats().await {
         Ok(stats) => {
             let mut codec_by_id: HashMap<String, (String, String)> = HashMap::new();
-            let mut inbound: Option<livekit::webrtc::stats::InboundRtpStats> = None;
+            let mut inbound: Option<gosuto_livekit::webrtc::stats::InboundRtpStats> = None;
             for s in stats.iter() {
                 match s {
-                    livekit::webrtc::stats::RtcStats::Codec(c) => {
+                    gosuto_livekit::webrtc::stats::RtcStats::Codec(c) => {
                         codec_by_id.insert(
                             c.rtc.id.clone(),
                             (c.codec.mime_type.clone(), c.codec.sdp_fmtp_line.clone()),
                         );
                     }
-                    livekit::webrtc::stats::RtcStats::InboundRtp(i) => {
+                    gosuto_livekit::webrtc::stats::RtcStats::InboundRtp(i) => {
                         if i.stream.kind == "video" {
                             inbound = Some(i.clone());
                         }
@@ -332,9 +332,9 @@ async fn handle_track_subscribed(
             // Periodically infer active simulcast quality from inbound stats
             if last_stats.elapsed() >= Duration::from_secs(1) {
                 if let Ok(stats) = rt_clone.block_on(video_track.get_stats()) {
-                    let mut inbound: Option<livekit::webrtc::stats::InboundRtpStats> = None;
+                    let mut inbound: Option<gosuto_livekit::webrtc::stats::InboundRtpStats> = None;
                     for s in stats.iter() {
-                        if let livekit::webrtc::stats::RtcStats::InboundRtp(i) = s {
+                        if let gosuto_livekit::webrtc::stats::RtcStats::InboundRtp(i) = s {
                             if i.stream.kind == "video" {
                                 inbound = Some(i.clone());
                             }
@@ -493,9 +493,9 @@ impl eframe::App for VideoApp {
                 let selected = sc.requested_quality.or(sc.active_quality);
                 ui.horizontal(|ui| {
                     let choices = [
-                        (livekit::track::VideoQuality::Low, "Low"),
-                        (livekit::track::VideoQuality::Medium, "Med"),
-                        (livekit::track::VideoQuality::High, "High"),
+                        (gosuto_livekit::track::VideoQuality::Low, "Low"),
+                        (gosuto_livekit::track::VideoQuality::Medium, "Med"),
+                        (gosuto_livekit::track::VideoQuality::High, "High"),
                     ];
                     for (q, label) in choices {
                         let is_selected = selected.is_some_and(|s| s == q);

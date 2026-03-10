@@ -1,11 +1,11 @@
 use image::ImageFormat;
 use image::RgbaImage;
-use livekit::options::TrackPublishOptions;
-use livekit::options::VideoCodec;
-use livekit::prelude::*;
-use livekit::webrtc::video_source::RtcVideoSource;
-use livekit::webrtc::video_source::VideoResolution;
-use livekit::webrtc::{
+use gosuto_livekit::options::TrackPublishOptions;
+use gosuto_livekit::options::VideoCodec;
+use gosuto_livekit::prelude::*;
+use gosuto_livekit::webrtc::video_source::RtcVideoSource;
+use gosuto_livekit::webrtc::video_source::VideoResolution;
+use gosuto_livekit::webrtc::{
     native::yuv_helper,
     video_frame::{I420Buffer, VideoFrame, VideoRotation},
     video_source::native::NativeVideoSource,

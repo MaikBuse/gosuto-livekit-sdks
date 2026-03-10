@@ -34,10 +34,11 @@ message FrameCryptor {
 
 message KeyProviderOptions {
     // Only specify if you want to use a shared_key
-    optional bytes shared_key = 1; 
+    optional bytes shared_key = 1;
     required int32 ratchet_window_size = 2;
     required bytes ratchet_salt = 3;
     required int32 failure_tolerance = 4; // -1 = no tolerance
+    optional int32 key_derivation_algorithm = 5; // 0 = PBKDF2, 1 = HKDF (default)
 }
 
 message E2eeOptions {

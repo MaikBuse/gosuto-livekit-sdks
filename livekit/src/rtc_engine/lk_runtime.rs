@@ -18,7 +18,7 @@ use std::{
 };
 
 use lazy_static::lazy_static;
-use libwebrtc::prelude::*;
+use gosuto_libwebrtc::prelude::*;
 use parking_lot::Mutex;
 
 lazy_static! {

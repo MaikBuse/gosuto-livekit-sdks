@@ -7,7 +7,7 @@ publish = false
 [dependencies]
 tokio = { workspace = true, features = ["full"] }
 env_logger = { workspace = true }
-livekit = { workspace = true, features = ["rustls-tls-native-roots"] }
+gosuto-livekit = { workspace = true, features = ["rustls-tls-native-roots"] }
 livekit-api = { workspace = true, features = ["rustls-tls-native-roots"] }
 log = { workspace = true }
 rand = { workspace = true }

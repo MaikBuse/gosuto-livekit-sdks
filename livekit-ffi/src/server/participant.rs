@@ -14,7 +14,7 @@
 
 use std::sync::Arc;
 
-use livekit::prelude::*;
+use gosuto_livekit::prelude::*;
 use std::time::Duration;
 use tokio::sync::oneshot;
 

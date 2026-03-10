@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use libwebrtc::prelude::*;
+use gosuto_libwebrtc::prelude::*;
 use livekit_protocol as proto;
 use livekit_protocol::enum_dispatch;
 

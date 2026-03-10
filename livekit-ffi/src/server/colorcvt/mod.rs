@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use crate::{proto, FfiResult};
-use livekit::webrtc::{prelude::*, video_frame::BoxVideoBuffer};
+use gosuto_livekit::webrtc::{prelude::*, video_frame::BoxVideoBuffer};
 use std::slice;
 
 pub mod cvtimpl;

@@ -14,7 +14,7 @@
 
 use cxx::SharedPtr;
 use tokio::sync::oneshot;
-use webrtc_sys::{rtc_error as sys_err, rtp_sender as sys_rs};
+use gosuto_webrtc_sys::{rtc_error as sys_err, rtp_sender as sys_rs};
 
 use super::media_stream_track::new_media_stream_track;
 use crate::{

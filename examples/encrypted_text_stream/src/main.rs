@@ -1,5 +1,5 @@
 use futures_util::TryStreamExt;
-use livekit::{
+use gosuto_livekit::{
     e2ee::{
         key_provider::{KeyProvider, KeyProviderOptions},
         E2eeOptions, EncryptionType,
@@ -49,7 +49,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     // Configure room options with encryption
     let mut room_options = RoomOptions::default();
     room_options.encryption =
-        Some(E2eeOptions { key_provider, encryption_type: livekit::e2ee::EncryptionType::Gcm });
+        Some(E2eeOptions { key_provider, encryption_type: gosuto_livekit::e2ee::EncryptionType::Gcm });
 
     // Connect to room
     let (room, rx) = Room::connect(&url, &token, room_options).await?;

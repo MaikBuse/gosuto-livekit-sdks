@@ -14,7 +14,7 @@
 
 use std::{fmt::Debug, sync::Arc};
 
-use libwebrtc::{prelude::*, stats::RtcStats};
+use gosuto_libwebrtc::{prelude::*, stats::RtcStats};
 use livekit_protocol as proto;
 
 use super::TrackInner;
@@ -53,10 +53,10 @@ impl LocalVideoTrack {
         let rtc_track = match source.clone() {
             #[cfg(not(target_arch = "wasm32"))]
             RtcVideoSource::Native(native_source) => {
-                use libwebrtc::peer_connection_factory::native::PeerConnectionFactoryExt;
+                use gosuto_libwebrtc::peer_connection_factory::native::PeerConnectionFactoryExt;
                 LkRuntime::instance()
                     .pc_factory()
-                    .create_video_track(&libwebrtc::native::create_random_uuid(), native_source)
+                    .create_video_track(&gosuto_libwebrtc::native::create_random_uuid(), native_source)
             }
             _ => panic!("unsupported video source"),
         };

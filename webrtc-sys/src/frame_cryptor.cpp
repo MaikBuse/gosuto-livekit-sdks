@@ -51,6 +51,8 @@ KeyProvider::KeyProvider(KeyProviderOptions options) {
   rtc_options.ratchet_salt = ratchet_salt;
   rtc_options.ratchet_window_size = options.ratchet_window_size;
   rtc_options.failure_tolerance = options.failure_tolerance;
+  rtc_options.key_derivation_algorithm =
+      static_cast<webrtc::KeyDerivationAlgorithm>(options.key_derivation_algorithm);
 
   impl_ =
       new rtc::RefCountedObject<webrtc::DefaultKeyProviderImpl>(rtc_options);

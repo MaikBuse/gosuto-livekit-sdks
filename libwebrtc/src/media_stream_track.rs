@@ -32,7 +32,7 @@ pub enum MediaStreamTrack {
 impl MediaStreamTrack {
     enum_dispatch!(
         [Video, Audio];
-        pub(crate) fn sys_handle(self: &Self) -> cxx::SharedPtr<webrtc_sys::media_stream::ffi::MediaStreamTrack>;
+        pub(crate) fn sys_handle(self: &Self) -> cxx::SharedPtr<gosuto_webrtc_sys::media_stream::ffi::MediaStreamTrack>;
     );
 }
 
@@ -67,7 +67,7 @@ macro_rules! media_stream_track {
         #[cfg(not(target_arch = "wasm32"))]
         pub(crate) fn sys_handle(
             &self,
-        ) -> cxx::SharedPtr<webrtc_sys::media_stream::ffi::MediaStreamTrack> {
+        ) -> cxx::SharedPtr<gosuto_webrtc_sys::media_stream::ffi::MediaStreamTrack> {
             self.handle.sys_handle()
         }
     };

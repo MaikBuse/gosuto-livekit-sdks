@@ -23,7 +23,7 @@ use std::{
 
 use futures_util::Stream;
 use libloading::{Library, Symbol};
-use libwebrtc::{audio_stream::native::NativeAudioStream, prelude::AudioFrame};
+use gosuto_libwebrtc::{audio_stream::native::NativeAudioStream, prelude::AudioFrame};
 use parking_lot::RwLock;
 use serde::Serialize;
 use serde_json::json;

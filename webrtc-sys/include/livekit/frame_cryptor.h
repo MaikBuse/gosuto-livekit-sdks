@@ -37,6 +37,7 @@ namespace livekit_ffi {
 struct KeyProviderOptions;
 struct EncryptedPacket;
 enum class Algorithm : ::std::int32_t;
+enum class KeyDerivationAlgorithm : ::std::int32_t;
 class RtcFrameCryptorObserverWrapper;
 class NativeFrameCryptorObserver;
 

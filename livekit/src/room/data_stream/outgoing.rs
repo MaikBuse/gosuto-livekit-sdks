@@ -20,7 +20,7 @@ use crate::{
 };
 use bmrng::unbounded::{UnboundedRequestReceiver, UnboundedRequestSender};
 use chrono::Utc;
-use libwebrtc::native::create_random_uuid;
+use gosuto_libwebrtc::native::create_random_uuid;
 use livekit_protocol as proto;
 use std::{collections::HashMap, path::Path, sync::Arc};
 use tokio::{io::AsyncReadExt, sync::Mutex};

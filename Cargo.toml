@@ -34,20 +34,20 @@ members = [
 
 [workspace.package]
 edition = "2021"
-repository = "https://github.com/livekit/rust-sdks"
+repository = "https://github.com/MaikBuse/gosuto-livekit-sdks"
 license = "Apache-2.0"
 
 [workspace.dependencies]
 imgproc = { version = "0.3.18", path = "imgproc" }
-libwebrtc = { version = "0.3.26", path = "libwebrtc" }
-livekit = { version = "0.7.32", path = "livekit" }
+gosuto-libwebrtc = { version = "0.3.26", path = "libwebrtc" }
+gosuto-livekit = { version = "0.7.32", path = "livekit" }
 livekit-api = { version = "0.4.14", path = "livekit-api" }
 livekit-ffi = { version = "0.12.48", path = "livekit-ffi" }
 livekit-protocol = { version = "0.7.1", path = "livekit-protocol" }
 livekit-runtime = { version = "0.4.0", path = "livekit-runtime" }
 soxr-sys = { version = "0.1.2", path = "soxr-sys" }
-webrtc-sys = { version = "0.3.23", path = "webrtc-sys" }
-webrtc-sys-build = { version = "0.3.13", path = "webrtc-sys/build" }
+gosuto-webrtc-sys = { version = "0.3.23", path = "webrtc-sys" }
+gosuto-webrtc-sys-build = { version = "0.3.13", path = "webrtc-sys/build" }
 yuv-sys = { version = "0.3.13", path = "yuv-sys" }
 
 anyhow = "1.0"

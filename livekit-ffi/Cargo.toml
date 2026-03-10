@@ -10,18 +10,18 @@ publish = false
 
 [features]
 default = ["rustls-tls-native-roots"]
-native-tls = ["livekit/native-tls"]
-native-tls-vendored = ["livekit/native-tls-vendored"]
-rustls-tls-native-roots = ["livekit/rustls-tls-native-roots"]
-rustls-tls-webpki-roots = ["livekit/rustls-tls-webpki-roots"]
-__rustls-tls = ["livekit/__rustls-tls"]
+native-tls = ["gosuto-livekit/native-tls"]
+native-tls-vendored = ["gosuto-livekit/native-tls-vendored"]
+rustls-tls-native-roots = ["gosuto-livekit/rustls-tls-native-roots"]
+rustls-tls-webpki-roots = ["gosuto-livekit/rustls-tls-webpki-roots"]
+__rustls-tls = ["gosuto-livekit/__rustls-tls"]
 
 # Enable tokio-console to debug tasks
 tracing = ["tokio/tracing", "console-subscriber"]
 
 [dependencies]
-livekit = { workspace = true }
-webrtc-sys = { workspace = true }
+gosuto-livekit = { workspace = true }
+gosuto-webrtc-sys = { workspace = true }
 soxr-sys = { workspace = true }
 imgproc = { workspace = true }
 livekit-protocol = { workspace = true }
@@ -45,7 +45,7 @@ link-cplusplus = { version = "1", features = ["nothing"] }
 
 [build-dependencies]
 prost-build = { workspace = true }
-webrtc-sys-build = { workspace = true }
+gosuto-webrtc-sys-build = { workspace = true }
 
 [dev-dependencies]
 livekit-api = { workspace = true }

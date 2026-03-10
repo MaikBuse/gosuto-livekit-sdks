@@ -18,7 +18,7 @@ use std::{
 };
 
 use futures_util::Stream;
-use livekit::{
+use gosuto_livekit::{
     webrtc::{audio_stream::native::NativeAudioStream, prelude::AudioFrame},
     AudioFilterAudioStream,
 };

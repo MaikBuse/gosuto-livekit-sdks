@@ -1,18 +1,18 @@
 #[cfg(any(target_os = "macos", target_os = "linux", target_os = "windows"))]
 mod test {
     use clap::{ArgAction, Parser};
-    use livekit::options::{TrackPublishOptions, VideoCodec};
-    use livekit::prelude::*;
-    use livekit::track::{LocalTrack, LocalVideoTrack, TrackSource};
-    use livekit::webrtc::desktop_capturer::{
+    use gosuto_livekit::options::{TrackPublishOptions, VideoCodec};
+    use gosuto_livekit::prelude::*;
+    use gosuto_livekit::track::{LocalTrack, LocalVideoTrack, TrackSource};
+    use gosuto_livekit::webrtc::desktop_capturer::{
         CaptureError, DesktopCaptureSourceType, DesktopCapturer, DesktopCapturerOptions,
         DesktopFrame,
     };
-    use livekit::webrtc::native::yuv_helper;
-    use livekit::webrtc::prelude::{
+    use gosuto_livekit::webrtc::native::yuv_helper;
+    use gosuto_livekit::webrtc::prelude::{
         I420Buffer, RtcVideoSource, VideoBuffer, VideoFrame, VideoResolution, VideoRotation,
     };
-    use livekit::webrtc::video_source::native::NativeVideoSource;
+    use gosuto_livekit::webrtc::video_source::native::NativeVideoSource;
     use livekit_api::access_token;
     use std::env;
     use std::sync::mpsc::{self, RecvTimeoutError, Sender};

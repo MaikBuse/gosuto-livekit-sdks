@@ -14,7 +14,7 @@
 
 use std::{borrow::Cow, fmt::Debug, sync::Arc, time::Duration};
 
-use libwebrtc::prelude::*;
+use gosuto_libwebrtc::prelude::*;
 use livekit_api::signal_client::{SignalError, SignalOptions};
 use livekit_protocol as proto;
 use livekit_runtime::{interval, Interval, JoinHandle};

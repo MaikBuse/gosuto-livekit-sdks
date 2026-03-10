@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use livekit::{
+use gosuto_livekit::{
     options::{VideoCodec, VideoResolution},
     webrtc::{prelude::*, video_source::VideoResolution as VideoSourceResolution},
 };

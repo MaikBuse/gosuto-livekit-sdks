@@ -40,7 +40,7 @@ pub mod video_stream;
 pub mod video_track;
 pub mod yuv_helper;
 
-use webrtc_sys::{rtc_error as sys_err, webrtc as sys_rtc};
+use gosuto_webrtc_sys::{rtc_error as sys_err, webrtc as sys_rtc};
 
 use crate::{MediaType, RtcError, RtcErrorType};
 

@@ -15,7 +15,7 @@
 use std::{slice, sync::Arc};
 
 use colorcvt::cvtimpl;
-use livekit::{
+use gosuto_livekit::{
     prelude::*,
     register_audio_filter_plugin,
     webrtc::{native::apm, native::audio_resampler, prelude::*},
@@ -192,9 +192,9 @@ fn on_set_remote_track_publication_quality(
         return Err(FfiError::InvalidRequest("publication is not a RemotePublication".into()));
     };
     let quality = match request.quality() {
-        proto::VideoQuality::Low => livekit::track::VideoQuality::Low,
-        proto::VideoQuality::Medium => livekit::track::VideoQuality::Medium,
-        proto::VideoQuality::High => livekit::track::VideoQuality::High,
+        proto::VideoQuality::Low => gosuto_livekit::track::VideoQuality::Low,
+        proto::VideoQuality::Medium => gosuto_livekit::track::VideoQuality::Medium,
+        proto::VideoQuality::High => gosuto_livekit::track::VideoQuality::High,
     };
     publication.set_video_quality(quality);
     Ok(proto::SetRemoteTrackPublicationQualityResponse {})

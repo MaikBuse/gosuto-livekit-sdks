@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use libwebrtc::{self as rtc, prelude::*};
+use gosuto_libwebrtc::{self as rtc, prelude::*};
 use livekit_protocol as proto;
 use tokio::sync::mpsc;
 

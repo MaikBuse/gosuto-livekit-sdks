@@ -14,7 +14,7 @@
 
 use std::{fmt::Debug, sync::Arc};
 
-use libwebrtc::{prelude::*, stats::RtcStats};
+use gosuto_libwebrtc::{prelude::*, stats::RtcStats};
 use livekit_protocol::enum_dispatch;
 use livekit_protocol::{self as proto};
 use parking_lot::{Mutex, RwLock};

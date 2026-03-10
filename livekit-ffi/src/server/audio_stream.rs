@@ -16,9 +16,9 @@ use std::borrow::Cow;
 use std::time::Duration;
 
 use futures_util::StreamExt;
-use livekit::track::Track;
-use livekit::webrtc::{audio_stream::native::NativeAudioStream, prelude::*};
-use livekit::{registered_audio_filter_plugin, AudioFilterAudioStream, AudioFilterStreamInfo};
+use gosuto_livekit::track::Track;
+use gosuto_livekit::webrtc::{audio_stream::native::NativeAudioStream, prelude::*};
+use gosuto_livekit::{registered_audio_filter_plugin, AudioFilterAudioStream, AudioFilterStreamInfo};
 use tokio::sync::{broadcast, mpsc, oneshot};
 
 use super::audio_plugin::AudioStreamKind;

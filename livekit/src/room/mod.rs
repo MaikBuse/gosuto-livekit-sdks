@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use bmrng::unbounded::UnboundedRequestReceiver;
-use libwebrtc::{
+use gosuto_libwebrtc::{
     native::frame_cryptor::EncryptionState,
     prelude::{
         ContinualGatheringPolicy, IceTransportsType, MediaStream, MediaStreamTrack,

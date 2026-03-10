@@ -1,4 +1,4 @@
-use livekit::{
+use gosuto_livekit::{
     options::TrackPublishOptions,
     track::{LocalAudioTrack, LocalTrack, TrackSource},
     webrtc::{

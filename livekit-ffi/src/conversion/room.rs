@@ -13,9 +13,9 @@
 // limitations under the License.
 
 use crate::{proto, server::room::FfiRoom};
-use livekit::{
+use gosuto_livekit::{
     e2ee::{
-        key_provider::{KeyProvider, KeyProviderOptions},
+        key_provider::{KeyDerivationAlgorithm, KeyProvider, KeyProviderOptions},
         E2eeOptions, EncryptionType,
     },
     options::{AudioEncoding, TrackPublishOptions, VideoEncoding},
@@ -108,10 +108,15 @@ impl From<DisconnectReason> for proto::DisconnectReason {
 
 impl From<proto::KeyProviderOptions> for KeyProviderOptions {
     fn from(value: proto::KeyProviderOptions) -> Self {
+        let key_derivation_algorithm = match value.key_derivation_algorithm {
+            Some(0) => KeyDerivationAlgorithm::Pbkdf2,
+            _ => KeyDerivationAlgorithm::Hkdf,
+        };
         Self {
             ratchet_window_size: value.ratchet_window_size,
             ratchet_salt: value.ratchet_salt,
             failure_tolerance: value.failure_tolerance,
+            key_derivation_algorithm,
         }
     }
 }
@@ -319,9 +324,9 @@ impl From<RoomInfo> for proto::RoomInfo {
     }
 }
 
-impl From<proto::ChatMessage> for livekit::ChatMessage {
+impl From<proto::ChatMessage> for gosuto_livekit::ChatMessage {
     fn from(proto_msg: proto::ChatMessage) -> Self {
-        livekit::ChatMessage {
+        gosuto_livekit::ChatMessage {
             id: proto_msg.id,
             message: proto_msg.message,
             timestamp: proto_msg.timestamp,
@@ -332,8 +337,8 @@ impl From<proto::ChatMessage> for livekit::ChatMessage {
     }
 }
 
-impl From<livekit::ChatMessage> for proto::ChatMessage {
-    fn from(msg: livekit::ChatMessage) -> Self {
+impl From<gosuto_livekit::ChatMessage> for proto::ChatMessage {
+    fn from(msg: gosuto_livekit::ChatMessage) -> Self {
         proto::ChatMessage {
             id: msg.id,
             message: msg.message,

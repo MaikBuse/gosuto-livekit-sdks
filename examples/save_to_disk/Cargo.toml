@@ -6,6 +6,6 @@ publish = false
 
 [dependencies]
 tokio = { workspace = true, features = ["full"] }
-livekit = { workspace = true, features = ["rustls-tls-native-roots"] }
+gosuto-livekit = { workspace = true, features = ["rustls-tls-native-roots"] }
 bytes = { workspace = true }
 futures = { workspace = true }

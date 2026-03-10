@@ -23,7 +23,7 @@ use std::{
     time::Duration,
 };
 
-use libwebrtc::{prelude::*, stats::RtcStats};
+use gosuto_libwebrtc::{prelude::*, stats::RtcStats};
 use livekit_api::signal_client::{SignalClient, SignalEvent, SignalEvents};
 use livekit_protocol::{self as proto};
 use livekit_runtime::{sleep, JoinHandle};

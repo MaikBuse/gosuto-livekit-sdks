@@ -14,7 +14,7 @@
 
 use std::{collections::HashMap, sync::Arc};
 
-use libwebrtc::{
+use gosuto_libwebrtc::{
     native::frame_cryptor::{
         DataPacketCryptor, EncryptedPacket, EncryptionAlgorithm, EncryptionState, FrameCryptor,
     },

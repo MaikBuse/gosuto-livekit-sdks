@@ -13,7 +13,7 @@
 // limitations under the License.
 
 use futures_util::StreamExt;
-use livekit::{
+use gosuto_livekit::{
     ByteStreamReader, ByteStreamWriter, StreamReader, StreamWriter, TextStreamReader,
     TextStreamWriter,
 };

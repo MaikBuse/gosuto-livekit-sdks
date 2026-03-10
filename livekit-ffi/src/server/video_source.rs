@@ -14,7 +14,7 @@
 
 use super::{colorcvt, FfiHandle};
 use crate::{proto, server, FfiError, FfiHandleId, FfiResult};
-use livekit::webrtc::{prelude::*, video_frame::VideoFrame};
+use gosuto_livekit::webrtc::{prelude::*, video_frame::VideoFrame};
 
 pub struct FfiVideoSource {
     pub handle_id: FfiHandleId,
@@ -34,7 +34,7 @@ impl FfiVideoSource {
         let source_inner = match source_type {
             #[cfg(not(target_arch = "wasm32"))]
             proto::VideoSourceType::VideoSourceNative => {
-                use livekit::webrtc::video_source::native::NativeVideoSource;
+                use gosuto_livekit::webrtc::video_source::native::NativeVideoSource;
 
                 let is_screencast = new_source.is_screencast.unwrap_or(false);
                 let video_source =

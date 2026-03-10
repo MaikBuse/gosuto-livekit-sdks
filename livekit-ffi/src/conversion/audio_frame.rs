@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use livekit::webrtc::{audio_source::AudioSourceOptions, prelude::*};
+use gosuto_livekit::webrtc::{audio_source::AudioSourceOptions, prelude::*};
 
 use crate::{
     proto,

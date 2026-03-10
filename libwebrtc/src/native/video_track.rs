@@ -14,7 +14,7 @@
 
 use cxx::SharedPtr;
 use sys_vt::ffi::video_to_media;
-use webrtc_sys::video_track as sys_vt;
+use gosuto_webrtc_sys::video_track as sys_vt;
 
 use super::media_stream_track::impl_media_stream_track;
 use crate::media_stream_track::RtcTrackState;

@@ -12,8 +12,8 @@ use cpal::traits::{DeviceTrait, HostTrait};
 use cpal::{Device, SampleRate, StreamConfig};
 use db_meter::display_dual_db_meters;
 use futures_util::StreamExt;
-use libwebrtc::native::apm::AudioProcessingModule;
-use livekit::{
+use gosuto_libwebrtc::native::apm::AudioProcessingModule;
+use gosuto_livekit::{
     options::TrackPublishOptions,
     track::{LocalAudioTrack, LocalTrack, TrackSource},
     webrtc::{
@@ -403,7 +403,7 @@ async fn handle_remote_audio_streams(
                     track.kind()
                 );
 
-                if let livekit::track::RemoteTrack::Audio(audio_track) = track {
+                if let gosuto_livekit::track::RemoteTrack::Audio(audio_track) = track {
                     let participant_identity = participant.identity().to_string();
                     info!("Setting up audio stream for participant: {}", participant_identity);
 
@@ -443,7 +443,7 @@ async fn handle_remote_audio_streams(
                     track.kind()
                 );
 
-                if let livekit::track::RemoteTrack::Audio(_) = track {
+                if let gosuto_livekit::track::RemoteTrack::Audio(_) = track {
                     let participant_identity = participant.identity().to_string();
                     info!("Stopping audio stream for participant: {}", participant_identity);
 

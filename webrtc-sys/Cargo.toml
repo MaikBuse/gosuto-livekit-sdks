@@ -1,5 +1,5 @@
 [package]
-name = "webrtc-sys"
+name = "gosuto-webrtc-sys"
 version = "0.3.23"
 edition.workspace = true
 homepage = "https://livekit.io"
@@ -15,7 +15,7 @@ cxx = "1.0"
 log = { workspace = true }
 
 [build-dependencies]
-webrtc-sys-build = { workspace = true }
+gosuto-webrtc-sys-build = { workspace = true }
 cxx-build = "1.0"
 glob = "0.3"
 cc = "1.0"

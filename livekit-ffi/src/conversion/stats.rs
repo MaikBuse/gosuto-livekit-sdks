@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use livekit::webrtc::{
+use gosuto_livekit::webrtc::{
     prelude::DataChannelState,
     stats::{
         self as rtc, DtlsRole, DtlsTransportState, IceCandidatePairState, IceCandidateType,

@@ -39,7 +39,7 @@ use crate::{
     ChatMessage, DataPacket, RoomSession, RpcAck, RpcRequest, RpcResponse, SipDTMF, Transcription,
 };
 use chrono::Utc;
-use libwebrtc::{native::create_random_uuid, rtp_parameters::RtpEncodingParameters};
+use gosuto_libwebrtc::{native::create_random_uuid, rtp_parameters::RtpEncodingParameters};
 use livekit_api::signal_client::SignalError;
 use livekit_protocol as proto;
 use livekit_runtime::timeout;

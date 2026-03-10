@@ -1,8 +1,8 @@
 use bytes::{BufMut, BytesMut};
 use futures::StreamExt;
-use livekit::prelude::*;
-use livekit::webrtc::audio_stream::native::NativeAudioStream;
-use livekit::webrtc::native::audio_resampler;
+use gosuto_livekit::prelude::*;
+use gosuto_livekit::webrtc::audio_stream::native::NativeAudioStream;
+use gosuto_livekit::webrtc::native::audio_resampler;
 use std::env;
 use tokio::fs::File;
 use tokio::io::{AsyncWriteExt, BufWriter};
