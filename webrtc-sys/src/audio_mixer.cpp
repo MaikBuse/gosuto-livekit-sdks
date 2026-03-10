@@ -22,7 +22,7 @@
 #include "api/audio/audio_frame.h"
 #include "api/audio/audio_mixer.h"
 #include "modules/audio_mixer/audio_mixer_impl.h"
-#include "webrtc-sys/src/audio_mixer.rs.h"
+#include "gosuto-webrtc-sys/src/audio_mixer.rs.h"
 
 namespace livekit_ffi {
 

@@ -24,7 +24,7 @@
 #include "livekit/peer_connection_factory.h"
 #include "livekit/webrtc.h"
 #include "rtc_base/thread.h"
-#include "webrtc-sys/src/frame_cryptor.rs.h"
+#include "gosuto-webrtc-sys/src/frame_cryptor.rs.h"
 
 namespace livekit_ffi {
 

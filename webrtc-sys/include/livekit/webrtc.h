@@ -36,7 +36,7 @@ namespace livekit_ffi {
 class RtcRuntime;
 class LogSink;
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/webrtc.rs.h"
+#include "gosuto-webrtc-sys/src/webrtc.rs.h"
 
 namespace livekit_ffi {
 

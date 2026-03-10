@@ -18,7 +18,7 @@
 
 #include "api/rtc_error.h"
 #include "rust/cxx.h"
-#include "webrtc-sys/src/rtc_error.rs.h"
+#include "gosuto-webrtc-sys/src/rtc_error.rs.h"
 
 namespace livekit_ffi {
 

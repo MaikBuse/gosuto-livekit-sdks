@@ -41,7 +41,7 @@ class SourceContext;
 
 using CompleteCallback = void (*)(const livekit_ffi::SourceContext*);
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/audio_track.rs.h"
+#include "gosuto-webrtc-sys/src/audio_track.rs.h"
 
 namespace livekit_ffi {
 

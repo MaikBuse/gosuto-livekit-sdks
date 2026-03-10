@@ -27,7 +27,7 @@ class DesktopCapturerOptions;
 class Source;
 }  // namespace livekit_ffi
 
-#include "webrtc-sys/src/desktop_capturer.rs.h"
+#include "gosuto-webrtc-sys/src/desktop_capturer.rs.h"
 
 namespace livekit_ffi {
 

@@ -18,7 +18,7 @@
 #include "livekit/jsep.h"
 
 #include "rust/cxx.h"
-#include "webrtc-sys/src/rtp_sender.rs.h"
+#include "gosuto-webrtc-sys/src/rtp_sender.rs.h"
 
 namespace livekit_ffi {
 

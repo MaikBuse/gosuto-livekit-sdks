@@ -22,7 +22,7 @@
 #include "api/priority.h"
 #include "api/rtp_parameters.h"
 #include "api/rtp_transceiver_direction.h"
-#include "webrtc-sys/src/rtp_parameters.rs.h"
+#include "gosuto-webrtc-sys/src/rtp_parameters.rs.h"
 
 namespace livekit_ffi {
 

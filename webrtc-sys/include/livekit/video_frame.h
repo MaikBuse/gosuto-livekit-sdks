@@ -24,7 +24,7 @@ namespace livekit_ffi {
 class VideoFrame;
 class VideoFrameBuilder;
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/video_frame.rs.h"
+#include "gosuto-webrtc-sys/src/video_frame.rs.h"
 
 namespace livekit_ffi {
 

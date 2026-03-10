@@ -26,7 +26,7 @@
 namespace livekit_ffi {
 typedef JavaVM JavaVM;
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/android.rs.h"
+#include "gosuto-webrtc-sys/src/android.rs.h"
 
 namespace livekit_ffi {
 void init_android(JavaVM* jvm);

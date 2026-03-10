@@ -30,7 +30,7 @@
 namespace livekit_ffi {
 class RtpReceiver;
 }
-#include "webrtc-sys/src/rtp_receiver.rs.h"
+#include "gosuto-webrtc-sys/src/rtp_receiver.rs.h"
 namespace livekit_ffi {
 
 // TODO(theomonnom): Implement RtpReceiverObserverInterface?

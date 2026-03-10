@@ -31,7 +31,7 @@ namespace livekit_ffi {
 class IceCandidate;
 class SessionDescription;
 };  // namespace livekit_ffi
-#include "webrtc-sys/src/jsep.rs.h"
+#include "gosuto-webrtc-sys/src/jsep.rs.h"
 
 namespace livekit_ffi {
 

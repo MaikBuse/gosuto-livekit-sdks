@@ -23,7 +23,7 @@
 namespace livekit_ffi {
 class Candidate;
 }
-#include "webrtc-sys/src/candidate.rs.h"
+#include "gosuto-webrtc-sys/src/candidate.rs.h"
 
 // cricket::Candidate
 namespace livekit_ffi {

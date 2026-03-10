@@ -30,12 +30,12 @@
 #include "livekit/rtp_transceiver.h"
 #include "livekit/webrtc.h"
 #include "rust/cxx.h"
-#include "webrtc-sys/src/data_channel.rs.h"
+#include "gosuto-webrtc-sys/src/data_channel.rs.h"
 
 namespace livekit_ffi {
 class PeerConnection;
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/peer_connection.rs.h"
+#include "gosuto-webrtc-sys/src/peer_connection.rs.h"
 
 namespace livekit_ffi {
 

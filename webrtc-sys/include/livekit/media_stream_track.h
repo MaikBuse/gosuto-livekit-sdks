@@ -26,7 +26,7 @@
 namespace livekit_ffi {
 class MediaStreamTrack;
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/media_stream_track.rs.h"
+#include "gosuto-webrtc-sys/src/media_stream_track.rs.h"
 
 namespace livekit_ffi {
 

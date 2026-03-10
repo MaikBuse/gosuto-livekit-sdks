@@ -29,7 +29,7 @@ namespace livekit_ffi {
 class PeerConnectionFactory;
 class PeerConnectionObserverWrapper;
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/peer_connection_factory.rs.h"
+#include "gosuto-webrtc-sys/src/peer_connection_factory.rs.h"
 
 namespace livekit_ffi {
 

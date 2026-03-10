@@ -34,7 +34,7 @@ class VideoTrack;
 class NativeVideoSink;
 class VideoTrackSource;
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/video_track.rs.h"
+#include "gosuto-webrtc-sys/src/video_track.rs.h"
 
 namespace livekit_ffi {
 

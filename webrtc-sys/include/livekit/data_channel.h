@@ -27,7 +27,7 @@
 namespace livekit_ffi {
 class DataChannel;
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/data_channel.rs.h"
+#include "gosuto-webrtc-sys/src/data_channel.rs.h"
 
 namespace livekit_ffi {
 

@@ -21,7 +21,7 @@
 #include <string>
 
 #include "api/video/yuv_helper.h"
-#include "webrtc-sys/src/yuv_helper.rs.h"
+#include "gosuto-webrtc-sys/src/yuv_helper.rs.h"
 
 namespace livekit_ffi {
 

@@ -32,7 +32,7 @@
 namespace livekit_ffi {
 class RtpTransceiver;
 }
-#include "webrtc-sys/src/rtp_transceiver.rs.h"
+#include "gosuto-webrtc-sys/src/rtp_transceiver.rs.h"
 
 namespace livekit_ffi {
 

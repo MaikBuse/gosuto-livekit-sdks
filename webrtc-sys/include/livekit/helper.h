@@ -27,7 +27,7 @@ class RtpSender;
 class RtpReceiver;
 class RtpTransceiver;
 }  // namespace livekit_ffi
-#include "webrtc-sys/src/helper.rs.h"
+#include "gosuto-webrtc-sys/src/helper.rs.h"
 
 namespace livekit_ffi {
 

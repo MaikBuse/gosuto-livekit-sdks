@@ -51,7 +51,7 @@ typedef void PlatformImageBuffer;
 }  // namespace livekit_ffi
 #endif
 
-#include "webrtc-sys/src/video_frame_buffer.rs.h"
+#include "gosuto-webrtc-sys/src/video_frame_buffer.rs.h"
 
 namespace livekit_ffi {
 

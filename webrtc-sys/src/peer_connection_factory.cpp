@@ -40,8 +40,8 @@
 #include "livekit/video_encoder_factory.h"
 #include "livekit/webrtc.h"
 #include "rtc_base/thread.h"
-#include "webrtc-sys/src/peer_connection.rs.h"
-#include "webrtc-sys/src/peer_connection_factory.rs.h"
+#include "gosuto-webrtc-sys/src/peer_connection.rs.h"
+#include "gosuto-webrtc-sys/src/peer_connection_factory.rs.h"
 
 namespace livekit_ffi {
 

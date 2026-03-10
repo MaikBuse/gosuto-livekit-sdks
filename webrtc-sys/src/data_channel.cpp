@@ -19,7 +19,7 @@
 #include <utility>
 
 #include "rtc_base/synchronization/mutex.h"
-#include "webrtc-sys/src/data_channel.rs.h"
+#include "gosuto-webrtc-sys/src/data_channel.rs.h"
 
 namespace livekit_ffi {
 

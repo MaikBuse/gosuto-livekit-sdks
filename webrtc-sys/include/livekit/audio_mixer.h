@@ -30,7 +30,7 @@ class AudioMixer;
 class NativeAudioFrame;
 }  // namespace livekit_ffi
 
-#include "webrtc-sys/src/audio_mixer.rs.h"
+#include "gosuto-webrtc-sys/src/audio_mixer.rs.h"
 
 namespace livekit_ffi {
 

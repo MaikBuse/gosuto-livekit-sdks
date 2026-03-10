@@ -31,7 +31,7 @@
 #include "rtc_base/ref_counted_object.h"
 #include "rtc_base/synchronization/mutex.h"
 #include "rtc_base/time_utils.h"
-#include "webrtc-sys/src/video_track.rs.h"
+#include "gosuto-webrtc-sys/src/video_track.rs.h"
 
 namespace livekit_ffi {
 
